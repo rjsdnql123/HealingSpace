@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useProFile } from "../../hooks/userProFile";
-import { resultComment } from "../../util/api/userAPI";
+import { resultComment } from "../../../util/api/userAPI";
 
 function TestResult() {
   const users = useProFile();

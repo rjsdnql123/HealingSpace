@@ -1,7 +1,7 @@
 import React from "react";
 import { useProFile } from "../../hooks/userProFile";
 import { userSetUserWorry } from "../../hooks/userProFile";
-import { worryListApi } from "../../util/api/userAPI";
+import { worryListApi } from "../../../util/api/userAPI";
 import { Button, InputGroup, FormControl } from "react-bootstrap";
 
 function WorryCheck() {

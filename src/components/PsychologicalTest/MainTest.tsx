@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { userSetUserScore } from "../../hooks/userProFile";
 import { Link } from "react-router-dom";
-import { questions } from "../../util/api/userAPI";
+import { questions } from "../../../util/api/userAPI";
 import { Button, InputGroup, FormControl } from "react-bootstrap";
 
 function MainTest({ history }: any) {
