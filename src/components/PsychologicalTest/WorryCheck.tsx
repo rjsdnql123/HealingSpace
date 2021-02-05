@@ -1,8 +1,9 @@
 import React from "react";
 import { useProFile } from "../../hooks/userProFile";
 import { userSetUserWorry } from "../../hooks/userProFile";
-import { worryListApi } from "../../../util/api/userAPI";
-import { Button, InputGroup, FormControl } from "react-bootstrap";
+import { worryListApi } from "../../util/api/userAPI";
+// import { Button, InputGroup, FormControl } from "react-bootstrap";
+import { ChoiceButton } from "../../util/styled";
 
 function WorryCheck() {
   const users = useProFile();
@@ -18,9 +19,9 @@ function WorryCheck() {
 
           {worryListApi.map((worryList: string, index: number) => {
             return (
-              <Button key={index} onClick={() => setUserName(worryList)}>
+              <ChoiceButton key={index} onClick={() => setUserName(worryList)}>
                 {worryList}
-              </Button>
+              </ChoiceButton>
             );
           })}
         </div>

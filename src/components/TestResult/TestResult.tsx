@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useProFile } from "../../hooks/userProFile";
-import { resultComment } from "../../../util/api/userAPI";
+import { resultComment } from "../../util/api/userAPI";
+import { ChoiceButton } from "../../util/styled";
 
 function TestResult() {
   const users = useProFile();
@@ -29,7 +30,7 @@ function TestResult() {
       ) : (
         <div>
           {results[users.userWorry]}
-          <button>다시 검사하기</button>
+          <ChoiceButton>다시 검사하기</ChoiceButton>
         </div>
       )}
     </div>

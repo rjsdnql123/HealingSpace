@@ -1,11 +1,11 @@
 import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "../../store";
+import { RootState } from "../store";
 import { useCallback } from "react";
 import {
   setUserWorry,
   setUserScore,
   setRateUserName,
-} from "../../store/reducers/userProFile";
+} from "../store/reducers/userProFile";
 
 export function useProFile() {
   const user = useSelector((state: RootState) => state.userProFile);
