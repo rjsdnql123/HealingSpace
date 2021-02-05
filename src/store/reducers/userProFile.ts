@@ -4,10 +4,13 @@ export const SET_USER_NAME = "user/SET_NAME";
 export const SET_USER_SCORE = "user/SET_SCORE";
 export const SET_USER_WORRY = "user/SET_WORRY";
 export const RATE_SET_NAME = "user/RATE_SET_NAME";
+export const RATE_SET_NAME_GOOGLE = "user/RATE_SET_NAME_GOOGLE";
+
 export const setUserName = createAction(SET_USER_NAME)<string>();
 export const setUserScore = createAction(SET_USER_SCORE)<number>();
 export const setUserWorry = createAction(SET_USER_WORRY)<string>();
 export const setRateUserName = createAction(RATE_SET_NAME)<string>();
+export const setRateUserNameGoogle = createAction(RATE_SET_NAME_GOOGLE)();
 
 type UserState = {
   userName: string;

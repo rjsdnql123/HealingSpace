@@ -5,6 +5,7 @@ import {
   setUserWorry,
   setUserScore,
   setRateUserName,
+  setRateUserNameGoogle,
 } from "../store/reducers/userProFile";
 
 export function useProFile() {
@@ -29,4 +30,9 @@ export function userSetUserScore() {
   return useCallback((userScore) => dispatch(setUserScore(userScore)), [
     dispatch,
   ]);
+}
+export function userSetgoogle() {
+  console.log("훅 통과");
+  const dispatch = useDispatch();
+  return useCallback(() => dispatch(setRateUserNameGoogle()), [dispatch]);
 }
