@@ -1,19 +1,31 @@
 // src/App.js
 import React, { useState } from "react";
+import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
+import { createStore, applyMiddleware } from "redux";
+import rootReducer from "../store";
+import { Route } from "react-router-dom";
+
+import createSagaMiddleware from "redux-saga";
+import rootSaga from "../store/sagas/index";
+import UserProFileList from "./components/ProFile/UserProFileList";
+import Test from "./components/PsychologicalTest/Test";
+import Result from "./components/TestResult/TestResult";
+
+import About from "./About";
+const sagaMiddleware = createSagaMiddleware();
+
+const store = createStore(rootReducer, applyMiddleware(sagaMiddleware));
+
+sagaMiddleware.run(rootSaga);
 
 function App() {
-  const [id, setId] = useState<any>("아이디를 입력해 주세요");
-
-  const click = () => {
-    let a = [1, 2, 3].map((n) => n ** n);
-    console.log(a);
-    setId(a[0]);
-  };
   return (
-    <div>
-      <div>{id}</div>
-      <button onClick={click}></button>
-    </div>
+    <Provider store={store}>
+      <Route exact path="/" component={UserProFileList} />
+      <Route path="/test" component={Test} />
+      <Route path="/result" component={Result} />
+    </Provider>
   );
 }
 export default App;
