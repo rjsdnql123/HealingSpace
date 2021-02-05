@@ -5,6 +5,7 @@ import { BrowserRouter } from "react-router-dom";
 import { createStore, applyMiddleware } from "redux";
 import rootReducer from "../store";
 import { Route } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 import createSagaMiddleware from "redux-saga";
 import rootSaga from "../store/sagas/index";
