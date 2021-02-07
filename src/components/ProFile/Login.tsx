@@ -1,12 +1,11 @@
 import React from "react";
 import {
-  userSetUserName,
-  userSetgoogle,
+  useSetUserName,
+  useSetgoogle,
   useProFile,
-} from "../../hooks/userProFile";
-import { Link } from "react-router-dom";
+} from "../../hooks/userProFileHooks";
 import { Redirect } from "react-router-dom";
-
+import GoogleLoginLogo from "../../../public/GoogleLoginLogo.png";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Button, InputGroup, FormControl } from "react-bootstrap";
 
@@ -14,25 +13,25 @@ type SubmitType = {
   userName: string;
 };
 
-const UserProfileList = ({ history }: any) => {
+function Login ()  {
   const { register, handleSubmit } = useForm();
-  const setUserName = userSetUserName();
+  const setUserName = useSetUserName();
   const user = useProFile();
-  const setUsetNameGoogle = userSetgoogle();
+  const setUsetNameGoogle = useSetgoogle();
   const onSubmit: SubmitHandler<SubmitType> = (name: SubmitType) => {
     setUserName(name.userName);
   };
-  const click = () => {
+  const googleLogin = () => {
     setUsetNameGoogle();
   };
+  console.log(user, "useruseruser");
   return (
     <div>
-      {user.userName === "" ? (
+      {user.status === false ? (
         <Redirect to={{ pathname: "/" }}></Redirect>
       ) : (
         <Redirect to={{ pathname: "/test" }}></Redirect>
       )}
-      <button onClick={click}>로그인</button>
       <form onSubmit={handleSubmit(onSubmit)}>
         <h2>불러줬음 하는 이름이나 별명을 적어줘!</h2>
         <InputGroup>
@@ -42,8 +41,12 @@ const UserProfileList = ({ history }: any) => {
           </Button>
         </InputGroup>
       </form>
+      <div onClick={googleLogin}>
+        <img src={GoogleLoginLogo}></img>
+      </div>
+      로그인 하시면 심리검사 점수가 저장돼 나중에 확인 하실수 있습니다.
     </div>
   );
 };
 
-export default UserProfileList;
+export default Login;

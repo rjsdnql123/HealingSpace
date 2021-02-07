@@ -1,7 +1,6 @@
-import login from "./login";
 import google from "./google";
-import { all, call } from "redux-saga/effects";
+import { all } from "redux-saga/effects";
 
 export default function* rootSaga() {
-  yield all([login(), google()]);
+  yield all([google()]);
 }

@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
-import { useProFile } from "../../hooks/userProFile";
+import { useProFile } from "../../hooks/userProFileHooks";
 import { resultComment } from "../../util/api/userAPI";
 import { ChoiceButton } from "../../util/styled";
 
 function TestResult() {
   const users = useProFile();
   let results = resultComment(users.userName, users.userScore);
-  let why = <div>ss</div>;
+  let why;
   useEffect(() => {
     console.log(results[users.userWorry]);
     console.log(users);

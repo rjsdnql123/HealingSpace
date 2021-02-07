@@ -1,15 +1,12 @@
 import WorryCheck from "./WorryCheck";
 import MainTest from "./MainTest";
-import { useProFile } from "../../hooks/userProFile";
+import { useProFile } from "../../hooks/userProFileHooks";
 import React from "react";
-const userproFile = ({ history }: any) => {
+
+function Test() {
   const users = useProFile();
 
-  return (
-    <div>
-      {users.userWorry === "" ? <WorryCheck /> : <MainTest history={history} />}
-    </div>
-  );
-};
+  return <div>{users.userWorry === "" ? <WorryCheck /> : <MainTest />}</div>;
+}
 
-export default userproFile;
+export default Test;

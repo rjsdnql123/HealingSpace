@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import { userSetUserScore } from "../../hooks/userProFile";
-import { Link } from "react-router-dom";
+import { useSetUserScore } from "../../hooks/userProFileHooks";
 import { questions } from "../../util/api/userAPI";
-// import { Button, InputGroup, FormControl } from "react-bootstrap";
 import { ChoiceButton } from "../../util/styled";
+import { useHistory } from "react-router-dom";
 
-function MainTest({ history }: any) {
+function MainTest() {
   const [count, setCount] = useState(0);
-  const setuesr = userSetUserScore();
+  let history = useHistory();
+  const setuesr = useSetUserScore();
   const counter = (num: number) => {
     if (count < questions.length - 1) {
       setuesr(num);

@@ -1,25 +1,24 @@
 import React from "react";
-import { useProFile } from "../../hooks/userProFile";
-import { userSetUserWorry } from "../../hooks/userProFile";
+import { useProFile } from "../../hooks/userProFileHooks";
+import { useSetUserWorry } from "../../hooks/userProFileHooks";
 import { worryListApi } from "../../util/api/userAPI";
-// import { Button, InputGroup, FormControl } from "react-bootstrap";
 import { ChoiceButton } from "../../util/styled";
+import { Redirect } from "react-router-dom";
 
 function WorryCheck() {
   const users = useProFile();
-  const setUserName = userSetUserWorry();
-  console.log(users);
+  const setUesrWorry = useSetUserWorry();
   return (
     <div>
-      {users.userName === "" ? (
-        <div>loding</div>
+      {users.status === false ? (
+        <Redirect to={{ pathname: "/" }}></Redirect>
       ) : (
         <div>
           <div>{users.userName}의 고민거리는 뭐야?</div>
 
           {worryListApi.map((worryList: string, index: number) => {
             return (
-              <ChoiceButton key={index} onClick={() => setUserName(worryList)}>
+              <ChoiceButton key={index} onClick={() => setUesrWorry(worryList)}>
                 {worryList}
               </ChoiceButton>
             );

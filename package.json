@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "babel src -d lib",
-    "start": "webpack"
+    "build": "webpack -w",
+    "start": "webpack serve --env development"
   },
   "keywords": [],
   "author": "",

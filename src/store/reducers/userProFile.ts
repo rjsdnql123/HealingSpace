@@ -1,43 +1,43 @@
-import { createAction, ActionType, createReducer } from "typesafe-actions";
+import { createReducer } from "typesafe-actions";
+import {
+  SET_USER_NAME,
+  SET_USER_SCORE,
+  SET_USER_WORRY,
+  LOGIN_ERROR,
+  LOGIN_SUCCESS,
+} from "../../actions/actionTypes";
+import { UserAction } from "../../actions/index";
 
-export const SET_USER_NAME = "user/SET_NAME";
-export const SET_USER_SCORE = "user/SET_SCORE";
-export const SET_USER_WORRY = "user/SET_WORRY";
-export const RATE_SET_NAME = "user/RATE_SET_NAME";
-export const RATE_SET_NAME_GOOGLE = "user/RATE_SET_NAME_GOOGLE";
-
-export const setUserName = createAction(SET_USER_NAME)<string>();
-export const setUserScore = createAction(SET_USER_SCORE)<number>();
-export const setUserWorry = createAction(SET_USER_WORRY)<string>();
-export const setRateUserName = createAction(RATE_SET_NAME)<string>();
-export const setRateUserNameGoogle = createAction(RATE_SET_NAME_GOOGLE)();
-
-type UserState = {
+export type UserState = {
   userName: string;
   userScore: number;
   userWorry: string;
+  error: string;
+  status: boolean;
 };
-
-const actions = { setUserName, setUserScore, setUserWorry };
-type UserAction = ActionType<typeof actions>;
 
 const initialState: UserState = {
   userName: "",
   userScore: 0,
   userWorry: "",
+  error: "",
+  status: false,
 };
 
 const UserReducer = createReducer<UserState, UserAction>(initialState, {
   [SET_USER_NAME]: (state, { payload: userName }) => {
-    console.log("지나가니?");
-    console.log(userName, "이름이 뭘까요");
     return Object.assign({}, state, { userName: userName });
   },
   [SET_USER_SCORE]: (state, { payload: userScore }) =>
     Object.assign({}, state, { userScore: state.userScore += userScore }),
   [SET_USER_WORRY]: (state, { payload: userWorry }) => {
-    console.log("지나가니");
     return Object.assign({}, state, { userWorry: userWorry });
+  },
+  [LOGIN_ERROR]: (state, { payload: error }) => {
+    return Object.assign({}, state, { error: error });
+  },
+  [LOGIN_SUCCESS]: (state) => {
+    return Object.assign({}, state, { status: true });
   },
 });
 
