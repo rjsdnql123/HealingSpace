@@ -11,7 +11,7 @@ import Test from "./components/PsychologicalTest/Test";
 import Result from "./components/TestResult/TestResult";
 import humanLogo from "../public/humanLogo.png";
 // import { Redirect } from "react-router-dom";
-import { Switch, BrowserRouter as Router, Route } from "react-router-dom";
+import { Switch, HashRouter as Router, Route } from "react-router-dom";
 
 const store = configureStore();
 function App() {
@@ -19,7 +19,7 @@ function App() {
     <Provider store={store}>
       <img src={humanLogo} width={500} height={500}></img>
       <div>여기다가</div>
-      <Router basename={process.env.PUBLIC_URL}>
+      <Router>
         <div>
           <Switch>
             <Route exact path="/" component={Login} />
