@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
 
 const port = process.env.PORT || 3000;
 
@@ -7,6 +8,8 @@ module.exports = {
   entry: './src/index.tsx',
   output: {
     filename: 'bundle.[hash].js',
+    path: path.resolve(__dirname, 'docs'),
+
   },
   module: {
     rules: [
