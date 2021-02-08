@@ -19,7 +19,7 @@ function App() {
     <Provider store={store}>
       <img src={humanLogo} width={500} height={500}></img>
       <div>여기다가</div>
-      <Router basename="/example">
+      <Router basename="/dist">
         <div>
           <Switch>
             <Route exact path="/" component={Login} />
