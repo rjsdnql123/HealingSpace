@@ -16,18 +16,20 @@ import { Switch, BrowserRouter as Router, Route } from "react-router-dom";
 const store = configureStore();
 function App() {
   return (
-    <Router>
-      <Provider store={store}>
-        <GlobalStyle />
-        <img src={humanLogo} width={500} height={500}></img>
-        <div>여기다가</div>
-        <Switch>
-          <Route exact path="/" component={Login} />
-          <Route path="/test" component={Test} />
-          <Route path="/result" component={Result} />
-        </Switch>
-      </Provider>
-    </Router>
+    <Provider store={store}>
+      <img src={humanLogo} width={500} height={500}></img>
+      <div>여기다가</div>
+      <Router basename="/example">
+        <div>
+          <Switch>
+            <Route exact path="/" component={Login} />
+            <Route exact path="/test" component={Test} />
+            <Route exact path="/result" component={Result} />
+          </Switch>
+        </div>
+      </Router>
+      <GlobalStyle />
+    </Provider>
   );
 }
 export default App;
