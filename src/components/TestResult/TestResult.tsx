@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useProFile } from "../../hooks/userProFileHooks";
 import { resultComment } from "../../util/api/userAPI";
 import { ChoiceButton } from "../../util/styled";
@@ -7,10 +7,7 @@ function TestResult() {
   const users = useProFile();
   let results = resultComment(users.userName, users.userScore);
   let why;
-  useEffect(() => {
-    console.log(results[users.userWorry]);
-    console.log(users);
-  });
+
   if (users.userScore >= 25) {
     why = <div>{users.userName} (이)는 굉장히 심한 우울감을 느끼고 있어</div>;
   } else if (users.userScore >= 21) {
@@ -29,7 +26,7 @@ function TestResult() {
         <div>오류</div>
       ) : (
         <div>
-          {results[users.userWorry]}
+          <div>{results[users.userWorry]}</div>
           <ChoiceButton>다시 검사하기</ChoiceButton>
         </div>
       )}

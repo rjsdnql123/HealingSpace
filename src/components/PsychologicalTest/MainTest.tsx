@@ -3,6 +3,7 @@ import { useSetUserScore } from "../../hooks/userProFileHooks";
 import { questions } from "../../util/api/userAPI";
 import { ChoiceButton } from "../../util/styled";
 import { useHistory } from "react-router-dom";
+import { ProgressBar } from "react-bootstrap";
 
 function MainTest() {
   const [count, setCount] = useState(0);
@@ -19,7 +20,10 @@ function MainTest() {
 
   return (
     <div>
-      <div>{questions[count].ask} 너의 고민은 이것 이구나</div>
+      <ProgressBar
+        animated
+        now={Math.round((count / questions.length) * 100)}
+      />
       {questions[count].answer.map((questionsList: string, index: number) => {
         return (
           <ChoiceButton

@@ -3,6 +3,7 @@ import {
   useSetUserName,
   useSetgoogle,
   useProFile,
+  useLoginSuccess,
 } from "../../hooks/userProFileHooks";
 import { Redirect } from "react-router-dom";
 import GoogleLoginLogo from "../../../public/GoogleLoginLogo.png";
@@ -13,18 +14,19 @@ type SubmitType = {
   userName: string;
 };
 
-function Login ()  {
+function Login() {
   const { register, handleSubmit } = useForm();
   const setUserName = useSetUserName();
+  const setLoginSuccess = useLoginSuccess();
   const user = useProFile();
   const setUsetNameGoogle = useSetgoogle();
   const onSubmit: SubmitHandler<SubmitType> = (name: SubmitType) => {
     setUserName(name.userName);
+    setLoginSuccess();
   };
   const googleLogin = () => {
     setUsetNameGoogle();
   };
-  console.log(user, "useruseruser");
   return (
     <div>
       {user.status === false ? (
@@ -47,6 +49,6 @@ function Login ()  {
       로그인 하시면 심리검사 점수가 저장돼 나중에 확인 하실수 있습니다.
     </div>
   );
-};
+}
 
 export default Login;

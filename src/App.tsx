@@ -18,7 +18,6 @@ function App() {
   return (
     <Provider store={store}>
       <img src={humanLogo} width={500} height={500}></img>
-      <div>여기다가</div>
       <Router>
         <div>
           <Switch>

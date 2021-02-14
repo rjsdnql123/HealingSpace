@@ -6,6 +6,7 @@ import {
   setUserScore,
   setUserName,
   setGoogleLogin,
+  loginSuccess,
 } from "../actions/index";
 
 export function useProFile() {
@@ -19,6 +20,11 @@ export function useSetUserName() {
     dispatch,
   ]);
 }
+export function useLoginSuccess() {
+  const dispatch = useDispatch();
+  return useCallback(() => dispatch(loginSuccess()), [dispatch]);
+}
+
 export function useSetUserWorry() {
   const dispatch = useDispatch();
   return useCallback((userWorry: string) => dispatch(setUserWorry(userWorry)), [
