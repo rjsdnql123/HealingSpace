@@ -2,13 +2,11 @@ import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../store";
 import { useCallback } from "react";
 import {
+  setUserName,
   setUserWorry,
   setUserScore,
-  setUserName,
   setGoogleLogin,
-  loginSuccess,
-} from "../actions/index";
-
+} from "../store/reducers/userProFile";
 export function useProFile() {
   const user = useSelector((state: RootState) => state.userProFile);
   return user;
@@ -19,10 +17,6 @@ export function useSetUserName() {
   return useCallback((userName: string) => dispatch(setUserName(userName)), [
     dispatch,
   ]);
-}
-export function useLoginSuccess() {
-  const dispatch = useDispatch();
-  return useCallback(() => dispatch(loginSuccess()), [dispatch]);
 }
 
 export function useSetUserWorry() {
