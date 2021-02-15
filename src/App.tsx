@@ -1,6 +1,6 @@
 import React from "react";
 import { Provider } from "react-redux";
-import configureStore from "./store";
+import createStore from "./store";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { GlobalStyle } from "./util/styled";
 import Login from "./components/ProFile/Login";
@@ -9,7 +9,7 @@ import Result from "./components/TestResult/TestResult";
 import humanLogo from "../public/humanLogo.png";
 import { Switch, HashRouter as Router, Route } from "react-router-dom";
 
-const store = configureStore();
+const store = createStore();
 function App() {
   return (
     <Provider store={store}>
