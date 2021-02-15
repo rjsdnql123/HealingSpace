@@ -31,9 +31,19 @@ export default function kakaoGeolocation() {
   }
 
   //좌표로 행정동 표시하기
-  kakao.maps.event.addListener(map, "idle", function () {
-    console.log("행정동 표시 해주기");
-    searchAddrFromCoords(map.getCenter(), displayCenterInfo);
+  //   kakao.maps.event.addListener(map, "idle", function () {
+  //     console.log("행정동 표시 해주기");
+  //     searchAddrFromCoords(map.getCenter(), displayCenterInfo);
+  //   });
+  var timer: any;
+  kakao.maps.event.addListener(map, "bounds_changed", function () {
+    if (timer) {
+      clearTimeout(timer);
+    }
+    timer = setTimeout(function () {
+      console.log("여기에 ajax 요청");
+      searchAddrFromCoords(map.getCenter(), displayCenterInfo);
+    }, 5000);
   });
 
   function searchAddrFromCoords(
