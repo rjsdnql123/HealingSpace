@@ -1,32 +1,23 @@
 import { all, fork, takeLatest, put, delay, call } from "redux-saga/effects";
 import {
-  GOOGLE_LOGIN,
-  SET_USER_NAME,
-  LOGIN_ERROR,
-  LOGIN_SUCCESS,
-} from "../../actions/actionTypes";
+  setUserName,
+  setGoogleLogin,
+  loginError,
+} from "../reducers/userProFile";
 import googleLoginAPI from "../../util/api/googleLoginAPI";
 
 function* login() {
   try {
-    const user = yield call(googleLoginAPI);
-    yield put({
-      type: SET_USER_NAME,
-      payload: user.displayName,
-    });
-    yield put({
-      type: LOGIN_SUCCESS,
-    });
+    const { displayName } = yield call(googleLoginAPI);
+    console.log(displayName, "user");
+    yield put(setUserName(displayName));
   } catch (e) {
-    yield put({
-      type: LOGIN_ERROR,
-      payload: e.message,
-    });
+    yield put(loginError(e));
   }
 }
 
 function* watchLogin() {
-  yield takeLatest(GOOGLE_LOGIN, login);
+  yield takeLatest(setGoogleLogin, login);
 }
 
 export default function* loginSaga() {

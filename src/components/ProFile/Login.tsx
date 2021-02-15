@@ -3,7 +3,6 @@ import {
   useSetUserName,
   useSetgoogle,
   useProFile,
-  useLoginSuccess,
 } from "../../hooks/userProFileHooks";
 import { Redirect } from "react-router-dom";
 import GoogleLoginLogo from "../../../public/GoogleLoginLogo.png";
@@ -17,12 +16,11 @@ type SubmitType = {
 function Login() {
   const { register, handleSubmit } = useForm();
   const setUserName = useSetUserName();
-  const setLoginSuccess = useLoginSuccess();
   const user = useProFile();
   const setUsetNameGoogle = useSetgoogle();
+
   const onSubmit: SubmitHandler<SubmitType> = (name: SubmitType) => {
     setUserName(name.userName);
-    setLoginSuccess();
   };
   const googleLogin = () => {
     setUsetNameGoogle();
