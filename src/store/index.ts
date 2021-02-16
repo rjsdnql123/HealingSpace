@@ -1,18 +1,22 @@
-import { combineReducers, createStore, applyMiddleware } from "redux";
-import userProFile from "./reducers/userProFile";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import createSagaMiddleware from "redux-saga";
+import userProFile from "./reducers/userProFile";
 import rootSaga from "./sagas/index";
 
 const rootReducer = combineReducers({
   userProFile,
 });
 
-function configureStore() {
+function createStore() {
   const sagaMiddleware = createSagaMiddleware();
-  const store = createStore(rootReducer, applyMiddleware(sagaMiddleware));
+  const store = configureStore({
+    reducer: rootReducer,
+    devTools: true,
+    middleware: [sagaMiddleware],
+  });
   sagaMiddleware.run(rootSaga);
   return store;
 }
 
 export type RootState = ReturnType<typeof rootReducer>;
-export default configureStore;
+export default createStore;
