@@ -30,6 +30,9 @@ const UserReducer = createSlice({
     setUserScore(state, { payload: score }: PayloadAction<number>) {
       state.userScore += score;
     },
+    resetScore(state) {
+      state.userScore = 0;
+    },
     loginError(state, { payload: error }: PayloadAction<string>) {
       state.error = error;
     },
@@ -42,6 +45,7 @@ export const {
   setUserWorry,
   loginError,
   setGoogleLogin,
+  resetScore,
 } = UserReducer.actions;
 
 export default UserReducer.reducer;
