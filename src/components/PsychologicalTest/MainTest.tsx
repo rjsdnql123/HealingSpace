@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useSetUserScore } from "../../hooks/userProFileHooks";
+import React, { useState, useEffect } from "react";
+import { useSetUserScore, useResetScore } from "../../hooks/userProFileHooks";
 import { questions } from "../../util/api/userAPI";
 import { ChoiceButton } from "../../util/styled";
 import { useHistory } from "react-router-dom";
@@ -9,6 +9,7 @@ function MainTest() {
   const [count, setCount] = useState(0);
   let history = useHistory();
   const setuesr = useSetUserScore();
+  const resetScore = useResetScore();
   const counter = (num: number) => {
     if (count < questions.length - 1) {
       setuesr(num);
@@ -17,9 +18,13 @@ function MainTest() {
       history.push("/result");
     }
   };
-
+  useEffect(() => {
+    console.log("몇번");
+    resetScore();
+  }, []);
   return (
     <div>
+      <div>{questions[count].ask}</div>
       <ProgressBar
         animated
         now={Math.round((count / questions.length) * 100)}

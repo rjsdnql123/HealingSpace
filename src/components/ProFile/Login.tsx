@@ -8,12 +8,7 @@ import { Redirect } from "react-router-dom";
 import GoogleLoginLogo from "../../../public/GoogleLoginLogo.png";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Button, InputGroup, FormControl } from "react-bootstrap";
-import kakaoGeolocation from "../../util/kakaoGeolocation";
-declare global {
-  interface Window {
-    kakao: any;
-  }
-}
+
 type SubmitType = {
   userName: string;
 };
@@ -23,9 +18,7 @@ function Login() {
   const setUserName = useSetUserName();
   const user = useProFile();
   const setUsetNameGoogle = useSetgoogle();
-  useEffect(() => {
-    kakaoGeolocation();
-  }, []);
+
   const onSubmit: SubmitHandler<SubmitType> = (name: SubmitType) => {
     setUserName(name.userName);
   };
@@ -39,7 +32,6 @@ function Login() {
       ) : (
         <Redirect to={{ pathname: "/test" }}></Redirect>
       )}
-      <div id="map" style={{ width: "500px", height: "500px" }} />
       <form onSubmit={handleSubmit(onSubmit)}>
         <h2>불러줬음 하는 이름이나 별명을 적어줘!</h2>
         <InputGroup>

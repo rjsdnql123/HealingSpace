@@ -5,6 +5,7 @@ import {
   setUserName,
   setUserWorry,
   setUserScore,
+  resetScore,
   setGoogleLogin,
 } from "../store/reducers/userProFile";
 export function useProFile() {
@@ -30,6 +31,10 @@ export function useSetUserScore() {
   return useCallback((userScore: number) => dispatch(setUserScore(userScore)), [
     dispatch,
   ]);
+}
+export function useResetScore() {
+  const dispatch = useDispatch();
+  return useCallback(() => dispatch(resetScore()), [dispatch]);
 }
 export function useSetgoogle() {
   const dispatch = useDispatch();
