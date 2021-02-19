@@ -169,19 +169,27 @@ export const questions: QuestionsType[] = [
     ],
   },
 ];
-interface ASD {
-  연애: string;
-  가정: string;
-  학업: string;
-  친구: string;
-  취업: string;
+
+export interface ResultCommentType {
+  firstComment: string;
+  mainComment: string;
 }
 
 export function resultComment(
   name: string,
   score: number,
   worry: string
-): string | undefined {
+): ResultCommentType {
+  let resultComment = {
+    firstComment: "",
+    mainComment: "",
+  };
+  const firstComment = [
+    `${name} (이)는 25점 이상으로 굉장히 심한 우울감을 느끼고 있어`,
+    `${name} (이)는 21점 이상으로 중증도의 우울감을 느끼고 있어.`,
+    `${name} (이)는 16점 이상으로 조금 우울함을 느끼고 있어.`,
+    `${name} (이)는 굉장히 마음이 건강한 상태야!.`,
+  ];
   const result: any = [
     {
       연애: `${name} (이)의 고민은 연애구나.. ${name} (이)는 아주 많이 심각하게 우울함을 느끼고 있어. 어떤 고민인지 너무 들어주고 싶은데 내가 해줄수 있는게 없네.. 내가 해주고 싶은 말은 연애할 때 연인이 1순위가 되겠지만 우리 연애 때매 스트레스 받는 시점에서는 그 사람을 1순위로 보지 말고 ${name} (이)를 먼저 바라봐 주는게 어떨까? 마음을 가라앉치고 우리 이성적으로 한번 생각해 보는게 좋을거 같아!`,
@@ -213,13 +221,29 @@ export function resultComment(
     },
   ];
   if (score >= 25) {
-    return result[0][worry];
+    return {
+      ...resultComment,
+      firstComment: firstComment[0],
+      mainComment: result[0][worry],
+    };
   } else if (score >= 21) {
-    return result[1][worry];
+    return {
+      ...resultComment,
+      firstComment: firstComment[1],
+      mainComment: result[1][worry],
+    };
   } else if (score >= 16) {
-    return result[2][worry];
+    return {
+      ...resultComment,
+      firstComment: firstComment[2],
+      mainComment: result[2][worry],
+    };
   } else if (score >= 1) {
-    return result[3][worry];
+    return {
+      ...resultComment,
+      firstComment: firstComment[3],
+      mainComment: result[3][worry],
+    };
   }
-  return;
+  return resultComment;
 }

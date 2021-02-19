@@ -4,7 +4,7 @@ import createStore from "./store";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { GlobalStyle } from "./util/styled";
 import Login from "./components/ProFile/Login";
-import Test from "./components/PsychologicalTest/Test";
+import TestIndex from "./components/PsychologicalTest/TestIndex";
 import Result from "./components/TestResult/TestResult";
 import humanLogo from "../public/humanLogo.png";
 import { Switch, HashRouter as Router, Route } from "react-router-dom";
@@ -17,7 +17,7 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/" component={Login} />
-          <Route exact path="/test" component={Test} />
+          <Route exact path="/test" component={TestIndex} />
           <Route exact path="/result" component={Result} />
         </Switch>
       </Router>

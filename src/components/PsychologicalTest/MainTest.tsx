@@ -4,6 +4,7 @@ import { questions } from "../../util/api/userAPI";
 import { ChoiceButton } from "../../util/styled";
 import { useHistory } from "react-router-dom";
 import { ProgressBar } from "react-bootstrap";
+import ButtonList from "./ButtonList";
 
 function MainTest() {
   const [count, setCount] = useState(0);
@@ -19,7 +20,6 @@ function MainTest() {
     }
   };
   useEffect(() => {
-    console.log("몇번");
     resetScore();
   }, []);
   return (
@@ -31,13 +31,12 @@ function MainTest() {
       />
       {questions[count].answer.map((questionsList: string, index: number) => {
         return (
-          <ChoiceButton
+          <ButtonList
             key={index}
-            variant="primary"
-            onClick={() => counter(index)}
-          >
-            {questionsList}
-          </ChoiceButton>
+            clickBase={counter}
+            list={questionsList}
+            index={index}
+          />
         );
       })}
     </div>
