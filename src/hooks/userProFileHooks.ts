@@ -8,35 +8,36 @@ import {
   resetScore,
   setGoogleLogin,
 } from "../store/reducers/userProFile";
-export function useProFile() {
+
+function useUserProFile() {
   const user = useSelector((state: RootState) => state.userProFile);
-  return user;
+  const dispatch = useDispatch();
+  const onSetUserName: any = useCallback(
+    (userName: string) => dispatch(setUserName(userName)),
+    [dispatch]
+  );
+  const onSetUserWorry: any = useCallback(
+    (userWorry: string) => dispatch(setUserWorry(userWorry)),
+    [dispatch]
+  );
+  const onSetUserScore: any = useCallback(
+    (userScore: number) => dispatch(setUserScore(userScore)),
+    [dispatch]
+  );
+  const onResetScore: any = useCallback(() => dispatch(resetScore()), [
+    dispatch,
+  ]);
+  const onSetGoogleLogin: any = useCallback(() => dispatch(setGoogleLogin()), [
+    dispatch,
+  ]);
+  return {
+    user,
+    onSetUserName,
+    onSetUserScore,
+    onSetUserWorry,
+    onResetScore,
+    onSetGoogleLogin,
+  };
 }
 
-export function useSetUserName() {
-  const dispatch = useDispatch();
-  return useCallback((userName: string) => dispatch(setUserName(userName)), [
-    dispatch,
-  ]);
-}
-
-export function useSetUserWorry() {
-  const dispatch = useDispatch();
-  return useCallback((userWorry: string) => dispatch(setUserWorry(userWorry)), [
-    dispatch,
-  ]);
-}
-export function useSetUserScore() {
-  const dispatch = useDispatch();
-  return useCallback((userScore: number) => dispatch(setUserScore(userScore)), [
-    dispatch,
-  ]);
-}
-export function useResetScore() {
-  const dispatch = useDispatch();
-  return useCallback(() => dispatch(resetScore()), [dispatch]);
-}
-export function useSetgoogle() {
-  const dispatch = useDispatch();
-  return useCallback(() => dispatch(setGoogleLogin()), [dispatch]);
-}
+export default useUserProFile;

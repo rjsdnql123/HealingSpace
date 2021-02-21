@@ -1,9 +1,5 @@
 import React from "react";
-import {
-  useSetUserName,
-  useSetgoogle,
-  useProFile,
-} from "../../hooks/userProFileHooks";
+import useUserProFile from "../../hooks/userProFileHooks";
 import { Redirect } from "react-router-dom";
 import GoogleLoginLogo from "../../../public/GoogleLoginLogo.png";
 import { useForm, SubmitHandler } from "react-hook-form";
@@ -15,15 +11,13 @@ type SubmitType = {
 
 function Login() {
   const { register, handleSubmit } = useForm();
-  const setUserName = useSetUserName();
-  const user = useProFile();
-  const setUsetNameGoogle = useSetgoogle();
+  const { onSetUserName, user, onSetGoogleLogin } = useUserProFile();
 
   const onSubmit: SubmitHandler<SubmitType> = (name: SubmitType) => {
-    setUserName(name.userName);
+    onSetUserName(name.userName);
   };
   const googleLogin = () => {
-    setUsetNameGoogle();
+    onSetGoogleLogin();
   };
   return (
     <div>
