@@ -1,23 +1,23 @@
 import React from "react";
-import { useProFile } from "../../hooks/userProFileHooks";
-import { useSetUserWorry } from "../../hooks/userProFileHooks";
+import  useUserProFile from "../../hooks/userProFileHooks";
 import { worryListApi } from "../../util/api/userAPI";
 import { ChoiceButton } from "../../util/styled";
 import { Redirect } from "react-router-dom";
 import ButtonList from "./ButtonList";
 
+// 유저의 걱정거리를 리듀서 스토어에 저장
 function WorryCheck() {
-  const users = useProFile();
-  const setUesrWorry = useSetUserWorry();
+
+  const {user, onSetUserWorry} = useUserProFile()
   return (
     <div>
         <div>
-          <div>{users.userName}의 고민거리는 뭐야?</div>
+          <div>{user.userName}의 고민거리는 뭐야?</div>
           {worryListApi.map((worryList: string, index: number) => {
             return (
               <ButtonList
                 key={index}
-                clickBase={setUesrWorry}
+                clickBase={onSetUserWorry}
                 list={worryList}
                 index={worryList}
               />
