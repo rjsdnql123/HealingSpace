@@ -12,22 +12,20 @@ import {
 function useUserProFile() {
   const user = useSelector((state: RootState) => state.userProFile);
   const dispatch = useDispatch();
-  const onSetUserName: any = useCallback(
+  const onSetUserName = useCallback(
     (userName: string) => dispatch(setUserName(userName)),
     [dispatch]
   );
-  const onSetUserWorry: any = useCallback(
+  const onSetUserWorry = useCallback(
     (userWorry: string) => dispatch(setUserWorry(userWorry)),
     [dispatch]
   );
-  const onSetUserScore: any = useCallback(
+  const onSetUserScore = useCallback(
     (userScore: number) => dispatch(setUserScore(userScore)),
     [dispatch]
   );
-  const onResetScore: any = useCallback(() => dispatch(resetScore()), [
-    dispatch,
-  ]);
-  const onSetGoogleLogin: any = useCallback(() => dispatch(setGoogleLogin()), [
+  const onResetScore = useCallback(() => dispatch(resetScore()), [dispatch]);
+  const onSetGoogleLogin = useCallback(() => dispatch(setGoogleLogin()), [
     dispatch,
   ]);
   return {
