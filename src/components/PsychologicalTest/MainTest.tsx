@@ -13,7 +13,6 @@ import ButtonList from "./ButtonList";
 function MainTest() {
   const [count, setCount] = useState(0);
   let history = useHistory();
-
   const { onResetScore, onSetUserScore } = useUserProFile();
   const counter = (num: number) => {
     if (count < questions.length - 1) {

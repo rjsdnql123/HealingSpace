@@ -7,6 +7,8 @@ import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
 import { firebaseConfig } from "./util/firebase";
+import "core-js/stable";
+import "regenerator-runtime/runtime";
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
 }
