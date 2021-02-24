@@ -1,13 +1,13 @@
 import React from "react";
 import { Provider } from "react-redux";
-import configureStore from "../store/index";
-// import configureStore from "./configureStore";
-function prepareReduxWrapper() {
-  const store = configureStore();
+import configureMockStore from "redux-mock-store";
+
+function prepareMockReduxWrapper(initialState?: any) {
+  const store = configureMockStore()(initialState);
   const wrapper = ({ children }: { children: React.ReactNode }) => {
     return <Provider store={store as any}>{children}</Provider>;
   };
   return [wrapper, store] as const;
 }
 
-export default prepareReduxWrapper;
+export default prepareMockReduxWrapper;
