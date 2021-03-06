@@ -1,3 +1,7 @@
+import firebase from "firebase/app";
+
+import "firebase/firebase-database";
+
 export const firebaseConfig = {
   apiKey: "AIzaSyCod9hK0LpcMsVHrnE6BYqEW5ep5hwtiKQ",
   authDomain: "healingspace-c26ce.firebaseapp.com",
@@ -8,3 +12,33 @@ export const firebaseConfig = {
   appId: "1:655277714798:web:7494ab9b8112d24021a57f",
   measurementId: "G-K0W21H67HV",
 };
+export const fire = () => {
+  if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+  }
+  let database = firebase.database();
+  console.log(database);
+};
+export const getUserTestCount = () => {
+  return firebase.database().ref("/").once("value");
+};
+export function writeUserData(uuid: string, score: number, worry: string) {
+  firebase
+    .database()
+    .ref("users/" + uuid)
+    .set({
+      uuid: uuid,
+      score: score,
+      worry: worry,
+    });
+}
+
+export function usercheck() {
+  firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+      // return user;
+      console.log(user, "userProFile");
+    } else {
+    }
+  });
+}

@@ -15,22 +15,20 @@ function Login() {
     onSetUserName(name.userName);
   };
   return (
-    <div>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <InputGroup>
-          <FormControl
-            type="text"
-            name="userName"
-            ref={register}
-            required
-            placeholder="이름을 입력해 주세요"
-          />
-          <Button variant="primary" type="submit">
-            확인
-          </Button>
-        </InputGroup>
-      </form>
-    </div>
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <InputGroup>
+        <FormControl
+          type="text"
+          name="userName"
+          ref={register}
+          required
+          placeholder="이름을 입력해 주세요"
+        />
+        <Button variant="primary" type="submit">
+          확인
+        </Button>
+      </InputGroup>
+    </form>
   );
 }
 
