@@ -3,6 +3,7 @@ import { ChoiceButton } from "../../util/styled";
 import kakaoGeolocation from "../../util/kakaoGeolocation";
 import { Link } from "react-router-dom";
 import testResultHook from "../../hooks/testResultHook";
+import { getUserTestCount } from "../../util/firebase";
 
 //검사 결과 페이지로 resultCommentAPI에 검색 결과를 요청
 //렌더링 시 kakao Map API를 요청
@@ -11,6 +12,9 @@ function TestResult() {
 
   useEffect(() => {
     kakaoGeolocation();
+    getUserTestCount().then((res) => {
+      console.log(res.val(), "resres");
+    });
   }, []);
   return (
     <div>
