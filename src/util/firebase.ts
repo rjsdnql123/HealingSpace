@@ -19,15 +19,20 @@ export const fire = () => {
   let database = firebase.database();
   console.log(database);
 };
-export const getUserTestCount = () => {
-  return firebase.database().ref("/").once("value");
+export const getUserTestCount = (uid: any) => {
+  return firebase.database().ref(`/users/${uid}`).once("value");
 };
-export function writeUserData(uuid: string, score: number, worry: string) {
+export function writeUserData(
+  uuid: string,
+  name: string,
+  score: number,
+  worry: string
+) {
   firebase
     .database()
     .ref("users/" + uuid)
-    .set({
-      uuid: uuid,
+    .push({
+      name: name,
       score: score,
       worry: worry,
     });

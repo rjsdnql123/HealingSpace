@@ -6,6 +6,8 @@ export type UserState = {
   userWorry: string;
   error: string;
   status: boolean;
+  previousTest: any;
+  uid: string;
 };
 
 const initialState: UserState = {
@@ -14,6 +16,8 @@ const initialState: UserState = {
   userWorry: "",
   error: "",
   status: false,
+  previousTest: [],
+  uid: "",
 };
 
 const UserReducer = createSlice({
@@ -37,6 +41,12 @@ const UserReducer = createSlice({
       state.error = error;
     },
     setGoogleLogin() {},
+    setUid(state, { payload: uid }: PayloadAction<string>) {
+      state.uid = uid;
+    },
+    setPreviousTests(state, { payload: previousTest }) {
+      state.previousTest = previousTest;
+    },
   },
 });
 export const {
@@ -46,6 +56,8 @@ export const {
   loginError,
   setGoogleLogin,
   resetScore,
+  setPreviousTests,
+  setUid,
 } = UserReducer.actions;
 
 export default UserReducer.reducer;

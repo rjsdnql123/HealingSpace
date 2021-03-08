@@ -8,13 +8,10 @@ import { getUserTestCount } from "../../util/firebase";
 //검사 결과 페이지로 resultCommentAPI에 검색 결과를 요청
 //렌더링 시 kakao Map API를 요청
 function TestResult() {
-  const { resultCommentList, user } = testResultHook();
-
+  const { resultCommentList, user, getTestList } = testResultHook();
   useEffect(() => {
     kakaoGeolocation();
-    getUserTestCount().then((res) => {
-      console.log(res.val(), "resres");
-    });
+    getTestList();
   }, []);
   return (
     <div>
@@ -34,6 +31,7 @@ function TestResult() {
           <ChoiceButton>다시 검사하기</ChoiceButton>
         </Link>
       </div>
+      <div>{Object.entries(user.previousTest).length}</div>
     </div>
   );
 }

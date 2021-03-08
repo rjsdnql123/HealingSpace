@@ -1,6 +1,5 @@
 import React from "react";
 import useUserProFile from "../../hooks/userProFileHooks";
-import { Redirect } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Button, InputGroup, FormControl } from "react-bootstrap";
 type SubmitType = {

@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import useUserProFile from "../../hooks/userProFileHooks";
 import { questions } from "../../util/api/userAPI";
-import { ChoiceButton } from "../../util/styled";
 import { useHistory } from "react-router-dom";
 import { ProgressBar } from "react-bootstrap";
 import ButtonList from "./ButtonList";
-
+import { usercheck, writeUserData } from "../../util/firebase";
 //onSetUserScore = 유저의 우울함의 척도를 저장
 //onResetScore = MainTest 페이지 렌더링 시 Score 초기화
 //counter = 진행하고 있는 검사의 순서를 나타냄
@@ -13,16 +12,18 @@ import ButtonList from "./ButtonList";
 function MainTest() {
   const [count, setCount] = useState(0);
   let history = useHistory();
-  const { onResetScore, onSetUserScore } = useUserProFile();
+  const { onResetScore, onSetUserScore, user } = useUserProFile();
   const counter = (num: number) => {
     if (count < questions.length - 1) {
       onSetUserScore(num);
       setCount(count + 1);
     } else {
+      writeUserData(user.uid, user.userName, user.userScore, user.userWorry);
       history.push("/result");
     }
   };
   useEffect(() => {
+    // usercheck();
     onResetScore();
   }, []);
   return (
