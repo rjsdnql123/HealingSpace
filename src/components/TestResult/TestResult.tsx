@@ -4,7 +4,7 @@ import kakaoGeolocation from "../../util/kakaoGeolocation";
 import { Link } from "react-router-dom";
 import testResultHook from "../../hooks/testResultHook";
 import { getUserTestCount } from "../../util/firebase";
-
+import Chart_Line from "./Chart_Line";
 //검사 결과 페이지로 resultCommentAPI에 검색 결과를 요청
 //렌더링 시 kakao Map API를 요청
 function TestResult() {
@@ -13,6 +13,7 @@ function TestResult() {
     kakaoGeolocation();
     getTestList();
   }, []);
+
   return (
     <div>
       <h3>{user.userName} (이)의 우울 지수는?</h3>
@@ -30,6 +31,9 @@ function TestResult() {
         <Link to="/test">
           <ChoiceButton>다시 검사하기</ChoiceButton>
         </Link>
+      </div>
+      <div>
+        <Chart_Line data={user.previousTest}></Chart_Line>
       </div>
       <div>{Object.entries(user.previousTest).length}</div>
     </div>
