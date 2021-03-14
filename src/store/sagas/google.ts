@@ -11,7 +11,6 @@ import "@babel/polyfill";
 function* login() {
   try {
     const { displayName, uid } = yield call(googleLoginAPI);
-    console.log(displayName, "uid", uid, "user");
     yield put(setUserName(displayName));
     yield put(setUid(uid));
   } catch (e) {

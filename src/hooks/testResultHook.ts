@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../store";
 import { resultComment, ResultCommentType } from "../util/api/userAPI";
 import { useCallback } from "react";
-import { setPreviousTests } from "../store/reducers/userProFile";
+import { loadPreviousTest } from "../store/reducers/userProFile";
 import { getUserTestCount } from "../util/firebase";
 
 function testResultHook() {
@@ -13,20 +13,16 @@ function testResultHook() {
     user.userScore,
     user.userWorry
   );
+  //비동기로 저장
+
   const onPreviousTest = useCallback(
-    (preUserTest: any) => dispatch(setPreviousTests(preUserTest)),
+    (uid: string) => {
+      return dispatch(loadPreviousTest(uid));
+    },
     [dispatch]
   );
-  const getTestList = () => {
-    getUserTestCount(user.uid).then((res) => {
-      console.log(res.val(), "resres");
-      let result = res.val();
-      onPreviousTest(result);
-    });
-  };
   return {
     user,
-    getTestList,
     resultCommentList,
     onPreviousTest,
   };
