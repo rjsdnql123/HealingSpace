@@ -20,7 +20,13 @@ export const fire = () => {
   console.log(database);
 };
 export const getUserTestCount = (uid: any) => {
-  return firebase.database().ref(`/users/${uid}`).once("value");
+  return firebase
+    .database()
+    .ref(`/users/${uid}`)
+    .once("value")
+    .then((res) => {
+      return res.val();
+    });
 };
 export function writeUserData(
   uuid: string,

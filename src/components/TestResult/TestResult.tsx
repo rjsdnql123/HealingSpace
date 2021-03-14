@@ -8,12 +8,11 @@ import Chart_Line from "./Chart_Line";
 //검사 결과 페이지로 resultCommentAPI에 검색 결과를 요청
 //렌더링 시 kakao Map API를 요청
 function TestResult() {
-  const { resultCommentList, user, getTestList } = testResultHook();
+  const { resultCommentList, user, onPreviousTest } = testResultHook();
   useEffect(() => {
     kakaoGeolocation();
-    getTestList();
+    onPreviousTest(user.uid);
   }, []);
-
   return (
     <div>
       <h3>{user.userName} (이)의 우울 지수는?</h3>
@@ -35,7 +34,7 @@ function TestResult() {
       <div>
         <Chart_Line data={user.previousTest}></Chart_Line>
       </div>
-      <div>{Object.entries(user.previousTest).length}</div>
+      <div>{user.previousTest.length}</div>
     </div>
   );
 }

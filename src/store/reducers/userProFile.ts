@@ -32,6 +32,7 @@ const UserReducer = createSlice({
       state.userWorry = worry;
     },
     setUserScore(state, { payload: score }: PayloadAction<number>) {
+      console.log(score, "soroe");
       state.userScore += score;
     },
     resetScore(state) {
@@ -42,10 +43,14 @@ const UserReducer = createSlice({
     },
     setGoogleLogin() {},
     setUid(state, { payload: uid }: PayloadAction<string>) {
+      console.log("uid");
       state.uid = uid;
     },
+    loadPreviousTest(state, { payload: uid }): any {},
     setPreviousTests(state, { payload: previousTest }) {
-      state.previousTest = previousTest;
+      for (let key in previousTest) {
+        state.previousTest.push(previousTest[key]);
+      }
     },
   },
 });
@@ -56,6 +61,7 @@ export const {
   loginError,
   setGoogleLogin,
   resetScore,
+  loadPreviousTest,
   setPreviousTests,
   setUid,
 } = UserReducer.actions;

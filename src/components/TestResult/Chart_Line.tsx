@@ -12,9 +12,11 @@ import {
 
 export default function Chart_Line({ data }: any) {
   console.log(data);
+  //데이터를 그냥 리덕스에 넣어주자
+
   return (
     <LineChart
-      width={500}
+      width={700}
       height={300}
       data={data}
       margin={{
@@ -25,7 +27,7 @@ export default function Chart_Line({ data }: any) {
       }}
     >
       <CartesianGrid strokeDasharray="3 3" />
-      <XAxis dataKey="name" />
+      <XAxis dataKey="worry" />
       <YAxis />
       <Tooltip />
       <Legend />
@@ -35,7 +37,7 @@ export default function Chart_Line({ data }: any) {
         stroke="#8884d8"
         activeDot={{ r: 8 }}
       />
-      {/* <Line type="monotone" dataKey="uv" stroke="#82ca9d" /> */}
+      {/* <Line type="monotone" dataKey="score" stroke="#82ca9d" /> */}
     </LineChart>
   );
 }
