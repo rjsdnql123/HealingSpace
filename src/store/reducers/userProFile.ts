@@ -6,7 +6,7 @@ export type UserState = {
   userWorry: string;
   error: string;
   status: boolean;
-  previousTest: any;
+  previousTest: PreviousTest[];
   uid: string;
 };
 
@@ -17,7 +17,12 @@ const initialState: UserState = {
   error: "",
   status: false,
   previousTest: [],
-  uid: "",
+  uid: ""
+};
+export type PreviousTest = {
+  userName: string;
+  userScore: number;
+  userWorry: string;
 };
 
 const UserReducer = createSlice({
@@ -43,16 +48,15 @@ const UserReducer = createSlice({
     },
     setGoogleLogin() {},
     setUid(state, { payload: uid }: PayloadAction<string>) {
-      console.log("uid");
       state.uid = uid;
     },
-    loadPreviousTest(state, { payload: uid }): any {},
+    PreviousTestAsync(state, { payload: uid }: PayloadAction<string>) {},
     setPreviousTests(state, { payload: previousTest }) {
       for (let key in previousTest) {
         state.previousTest.push(previousTest[key]);
       }
-    },
-  },
+    }
+  }
 });
 export const {
   setUserName,
@@ -61,9 +65,9 @@ export const {
   loginError,
   setGoogleLogin,
   resetScore,
-  loadPreviousTest,
+  PreviousTestAsync,
   setPreviousTests,
-  setUid,
+  setUid
 } = UserReducer.actions;
 
 export default UserReducer.reducer;

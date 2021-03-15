@@ -10,7 +10,7 @@ export const firebaseConfig = {
   storageBucket: "healingspace-c26ce.appspot.com",
   messagingSenderId: "655277714798",
   appId: "1:655277714798:web:7494ab9b8112d24021a57f",
-  measurementId: "G-K0W21H67HV",
+  measurementId: "G-K0W21H67HV"
 };
 export const fire = () => {
   if (!firebase.apps.length) {
@@ -40,7 +40,7 @@ export function writeUserData(
     .push({
       name: name,
       score: score,
-      worry: worry,
+      worry: worry
     });
 }
 

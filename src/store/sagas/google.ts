@@ -3,7 +3,7 @@ import {
   setUserName,
   setGoogleLogin,
   setUid,
-  loginError,
+  loginError
 } from "../reducers/userProFile";
 import googleLoginAPI from "../../util/api/googleLoginAPI";
 import "@babel/polyfill";

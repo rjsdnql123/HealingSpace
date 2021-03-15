@@ -23,7 +23,6 @@ function MainTest() {
     }
   };
   useEffect(() => {
-    // usercheck();
     onResetScore();
   }, []);
   return (

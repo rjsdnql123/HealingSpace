@@ -7,7 +7,7 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend,
+  Legend
 } from "recharts";
 
 export default function Chart_Line({ data }: any) {
@@ -23,7 +23,7 @@ export default function Chart_Line({ data }: any) {
         top: 5,
         right: 30,
         left: 20,
-        bottom: 5,
+        bottom: 5
       }}
     >
       <CartesianGrid strokeDasharray="3 3" />
@@ -37,7 +37,6 @@ export default function Chart_Line({ data }: any) {
         stroke="#8884d8"
         activeDot={{ r: 8 }}
       />
-      {/* <Line type="monotone" dataKey="score" stroke="#82ca9d" /> */}
     </LineChart>
   );
 }

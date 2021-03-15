@@ -11,7 +11,7 @@ export default function kakaoGeolocation() {
   var geocoder = new kakao.maps.services.Geocoder();
   let options = {
     center: new window.kakao.maps.LatLng(33.450701, 126.570667),
-    level: 6,
+    level: 6
   };
   var ps = new kakao.maps.services.Places();
 
@@ -72,7 +72,7 @@ export default function kakaoGeolocation() {
   function displayMarker(place: any) {
     var marker = new kakao.maps.Marker({
       map: map,
-      position: new kakao.maps.LatLng(place.y, place.x),
+      position: new kakao.maps.LatLng(place.y, place.x)
     });
 
     kakao.maps.event.addListener(marker, "click", function () {
