@@ -1,6 +1,6 @@
 import React from "react";
 import useUserProFile from "../../hooks/userProFileHooks";
-// import GoogleLoginLogo from "../../../public/GoogleLoginLogo.png";
+import GoogleLoginLogo from "../../../public/GoogleLoginLogo.png";
 
 function SocialLogin() {
   const { onSetGoogleLogin } = useUserProFile();
@@ -10,7 +10,7 @@ function SocialLogin() {
   };
   return (
     <div onClick={googleLogin}>
-      ss {/* <img src={GoogleLoginLogo}></img> */}
+      <img src={GoogleLoginLogo}></img>
     </div>
   );
 }

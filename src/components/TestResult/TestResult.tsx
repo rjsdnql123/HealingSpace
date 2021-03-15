@@ -34,7 +34,7 @@ function TestResult() {
       <div>
         <Chart_Line data={user.previousTest}></Chart_Line>
       </div>
-      <div>{user.previousTest.length}</div>
+      <div>이전 검사 기록을 살펴 보실수 있습니다.</div>
     </div>
   );
 }

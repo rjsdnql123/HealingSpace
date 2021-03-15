@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../store";
 import { resultComment, ResultCommentType } from "../util/api/userAPI";
 import { useCallback } from "react";
-import { loadPreviousTest } from "../store/reducers/userProFile";
+import { PreviousTestAsync } from "../store/reducers/userProFile";
 import { getUserTestCount } from "../util/firebase";
 
 function testResultHook() {
@@ -17,7 +17,7 @@ function testResultHook() {
 
   const onPreviousTest = useCallback(
     (uid: string) => {
-      return dispatch(loadPreviousTest(uid));
+      return dispatch(PreviousTestAsync(uid));
     },
     [dispatch]
   );

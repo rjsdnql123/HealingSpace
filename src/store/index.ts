@@ -4,7 +4,7 @@ import userProFile from "./reducers/userProFile";
 import rootSaga from "./sagas/index";
 
 const rootReducer = combineReducers({
-  userProFile,
+  userProFile
 });
 
 function createStore() {
@@ -12,7 +12,7 @@ function createStore() {
   const store = configureStore({
     reducer: rootReducer,
     devTools: true,
-    middleware: [sagaMiddleware],
+    middleware: [sagaMiddleware]
   });
   sagaMiddleware.run(rootSaga);
   return store;
