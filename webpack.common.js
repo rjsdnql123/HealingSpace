@@ -8,14 +8,16 @@ module.exports = {
   output: {
     filename: 'bundle.[hash].js',
     path: path.resolve(__dirname, 'docs'),
-
   },
+  target: ['web', 'es5'],
   module: {
     rules: [
       {
         test: /\.(ts|tsx|js)$/,
         exclude: /node_modules/,
-        use: ['babel-loader']
+        use: {
+          loader: 'babel-loader'
+        }
       },
       {
         test: /\.html$/,

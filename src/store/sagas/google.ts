@@ -6,7 +6,8 @@ import {
   loginError
 } from "../reducers/userProFile";
 import googleLoginAPI from "../../util/api/googleLoginAPI";
-import "@babel/polyfill";
+import "core-js/stable";
+import "regenerator-runtime/runtime";
 
 function* login() {
   try {
