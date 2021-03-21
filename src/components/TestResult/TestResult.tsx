@@ -3,8 +3,7 @@ import { ChoiceButton } from "../../util/styled";
 import kakaoGeolocation from "../../util/kakaoGeolocation";
 import { Link } from "react-router-dom";
 import testResultHook from "../../hooks/testResultHook";
-// import { getUserTestCount } from "../../util/firebase";
-// import Chart_Line from "./asdfsadf";
+
 //검사 결과 페이지로 resultCommentAPI에 검색 결과를 요청
 //렌더링 시 kakao Map API를 요청
 function TestResult() {
@@ -31,7 +30,6 @@ function TestResult() {
           <ChoiceButton>다시 검사하기</ChoiceButton>
         </Link>
       </div>
-      <div>{/* <Chart_Line data={user.previousTest}></Chart_Line> */}</div>
       <div>이전 검사 기록을 살펴 보실수 있습니다.</div>
     </div>
   );
