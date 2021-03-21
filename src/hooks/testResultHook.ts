@@ -3,7 +3,6 @@ import { RootState } from "../store";
 import { resultComment, ResultCommentType } from "../util/api/userAPI";
 import { useCallback } from "react";
 import { PreviousTestAsync } from "../store/reducers/userProFile";
-import { getUserTestCount } from "../util/firebase";
 
 function testResultHook() {
   const dispatch = useDispatch();

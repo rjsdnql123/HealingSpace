@@ -1,8 +1,6 @@
 import React from "react";
 import  useUserProFile from "../../hooks/userProFileHooks";
 import { worryListApi } from "../../util/api/userAPI";
-import { ChoiceButton } from "../../util/styled";
-import { Redirect } from "react-router-dom";
 import ButtonList from "./ButtonList";
 
 // 유저의 걱정거리를 리듀서 스토어에 저장
