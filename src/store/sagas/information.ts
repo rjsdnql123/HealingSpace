@@ -2,7 +2,7 @@ import { all, fork, takeLatest, put, delay, call } from "redux-saga/effects";
 import { PreviousTestAsync, setPreviousTests } from "../reducers/userProFile";
 import { getUserTestCount } from "../../util/firebase";
 
-function* TestInformationAsync({ payload }: any) {
+function* InformationAsync({ payload }: any) {
   try {
     const testList = yield call(getUserTestCount, payload);
 
@@ -10,10 +10,10 @@ function* TestInformationAsync({ payload }: any) {
   } catch (e) {}
 }
 
-function* watchTestInformation() {
-  yield takeLatest(PreviousTestAsync, TestInformationAsync);
+function* watchInformation() {
+  yield takeLatest(PreviousTestAsync, InformationAsync);
 }
 
 export default function* inFormationSaga() {
-  yield all([fork(watchTestInformation)]);
+  yield all([fork(watchInformation)]);
 }

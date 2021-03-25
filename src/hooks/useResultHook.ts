@@ -1,10 +1,10 @@
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../store";
-import { resultComment, ResultCommentType } from "../util/api/userAPI";
+import { resultComment, ResultCommentType } from "../util/userAPI";
 import { useCallback } from "react";
 import { PreviousTestAsync } from "../store/reducers/userProFile";
 
-function testResultHook() {
+function useResultHook() {
   const dispatch = useDispatch();
   const user = useSelector((state: RootState) => state.userProFile);
   let resultCommentList: ResultCommentType = resultComment(
@@ -23,8 +23,8 @@ function testResultHook() {
   return {
     user,
     resultCommentList,
-    onPreviousTest,
+    onPreviousTest
   };
 }
 
-export default testResultHook;
+export default useResultHook;

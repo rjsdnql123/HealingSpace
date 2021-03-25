@@ -3,9 +3,18 @@ import useUserProFile from "../../hooks/userProFileHooks";
 import { Redirect } from "react-router-dom";
 import LoginForm from "./LoginForm";
 import SocialLogin from "./SocialLogin";
+import styled from "styled-components";
 type SubmitType = {
   userName: string;
 };
+
+const Nameinput = styled.h2`
+  color: white;
+`;
+const Commet = styled.div`
+  color: white;
+  margin: 5px;
+`;
 
 function Login() {
   const { user } = useUserProFile();
@@ -17,10 +26,14 @@ function Login() {
       ) : (
         <Redirect to={{ pathname: "/test" }}></Redirect>
       )}
-      <h2>불러줬음 하는 이름이나 별명을 적어줘!</h2>
-      <LoginForm />
-      <SocialLogin />
-      로그인 하시면 심리검사 점수가 저장돼 나중에 확인 하실수 있습니다.
+      <div>
+        <Nameinput>불러줬음 하는 이름이나 별명을 적어주세요!</Nameinput>
+        <LoginForm />
+        <SocialLogin />
+        <Commet>
+          로그인 하시면 심리검사 점수가 저장돼 나중에 확인 하실수 있습니다.
+        </Commet>
+      </div>
     </div>
   );
 }

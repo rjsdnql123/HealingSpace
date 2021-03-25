@@ -2,7 +2,8 @@ import React from "react";
 import useUserProFile from "../../hooks/userProFileHooks";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Button, InputGroup, FormControl } from "react-bootstrap";
-type SubmitType = {
+
+interface SubmitType  {
   userName: string;
 };
 

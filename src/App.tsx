@@ -2,7 +2,7 @@ import React from "react";
 import { Provider } from "react-redux";
 import createStore from "./store";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { GlobalStyle } from "./util/styled";
+import { GlobalStyle } from "./components/common/styled";
 import Login from "./components/LoginPage/LoginIndex";
 import TestIndex from "./components/PsychologicalTest/TestIndex";
 import Result from "./components/TestResult/TestResult";

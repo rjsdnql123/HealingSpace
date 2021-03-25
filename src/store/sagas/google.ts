@@ -5,7 +5,7 @@ import {
   setUid,
   loginError
 } from "../reducers/userProFile";
-import googleLoginAPI from "../../util/api/googleLoginAPI";
+import googleLoginAPI from "../../util/googleLoginAPI";
 import "core-js/stable";
 import "regenerator-runtime/runtime";
 

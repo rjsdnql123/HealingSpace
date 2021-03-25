@@ -1,19 +1,28 @@
 import React, { useEffect } from "react";
-import { ChoiceButton } from "../../util/styled";
+import { ChoiceButton } from "../common/styled";
 import kakaoGeolocation from "../../util/kakaoGeolocation";
 import { Link } from "react-router-dom";
-import testResultHook from "../../hooks/testResultHook";
+import useResultHook from "../../hooks/useResultHook";
+import styled from "styled-components";
 
 //검사 결과 페이지로 resultCommentAPI에 검색 결과를 요청
 //렌더링 시 kakao Map API를 요청
+
+const TestComment = styled.div`
+  color: white;
+  margin: 5px;
+`;
+
 function TestResult() {
-  const { resultCommentList, user, onPreviousTest } = testResultHook();
+  const { resultCommentList, user, onPreviousTest } = useResultHook();
+
   useEffect(() => {
     kakaoGeolocation();
     onPreviousTest(user.uid);
   }, []);
+
   return (
-    <div>
+    <TestComment>
       <h3>{user.userName} (이)의 우울 지수는?</h3>
       <h1>{user.userScore}</h1>
       <div>
@@ -31,7 +40,7 @@ function TestResult() {
         </Link>
       </div>
       <div>이전 검사 기록을 살펴 보실수 있습니다.</div>
-    </div>
+    </TestComment>
   );
 }
 
