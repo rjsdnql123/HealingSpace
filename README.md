@@ -3,8 +3,8 @@
 
 ```
 사용 Stack
- React, Redux, Redux-saga, Redux-toolKit, styled-components, typescript, Webpack, Bable,
- react-router, react-  hooks, firebase, firebase-Auth, kakao Map API
+ React, Redux, Redux-saga, Redux-toolKit, styled-components, typescript, Webpack, Babel,
+ react-router, react-hooks, firebase, firebase-Auth, kakao Map API
  ```
  
 > 새로 도입한 기술 스택
