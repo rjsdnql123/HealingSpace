@@ -1,10 +1,5 @@
-import { all, fork, takeLatest, put, delay, call } from "redux-saga/effects";
-import {
-  setUserName,
-  setGoogleLogin,
-  setUid,
-  loginError
-} from "../reducers/userProFile";
+import { all, fork, takeLatest, put, call } from "redux-saga/effects";
+import { setUserName, setGoogleLogin, setUid, loginError } from "./loginSlice";
 import googleLoginAPI from "../../util/googleLoginAPI";
 import "core-js/stable";
 import "regenerator-runtime/runtime";

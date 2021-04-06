@@ -1,8 +1,16 @@
 import styled, { createGlobalStyle } from "styled-components";
 import { Button } from "react-bootstrap";
+import AppleSDGothicNeoL from "./AppleSDGothicNeoL.ttf";
 
-export const GlobalStyle = createGlobalStyle`
+export const GlobalStyles = createGlobalStyle`
+@font-face {
+  font-family: "AppleSDGothicNeoL";
+  src: local("AppleSDGothicNeoL"),
+  url(${AppleSDGothicNeoL}) 
+}
+
 body {
+  font-family: 'AppleSDGothicNeoL', sans-serif;
   text-align: center;
   max-width: 768px;
   min-width: 320px;

@@ -1,18 +1,20 @@
 import React from "react";
-import useUserProFile from "../../hooks/userProFileHooks";
+import useLoginHook from "../../hooks/useLoginHook";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Button, InputGroup, FormControl } from "react-bootstrap";
-type SubmitType = {
+
+interface SubmitType {
   userName: string;
-};
+}
 
 function Login() {
   const { register, handleSubmit } = useForm();
-  const { onSetUserName } = useUserProFile();
+  const { onSetUserName } = useLoginHook();
 
-  const onSubmit: SubmitHandler<SubmitType> = (name: SubmitType) => {
-    onSetUserName(name.userName);
+  const onSubmit: SubmitHandler<SubmitType> = ({ userName }: SubmitType) => {
+    onSetUserName(userName);
   };
+
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <InputGroup>
