@@ -1,38 +1,38 @@
 import React from "react";
-import useUserProFile from "../../hooks/userProFileHooks";
+import useLoginHook from "../../hooks/useLoginHook";
 import { Redirect } from "react-router-dom";
-import LoginForm from "./LoginForm";
-import SocialLogin from "./SocialLogin";
+import LoginForm from "../../components/LoginPage/LoginForm";
+import SocialLogin from "../../components/LoginPage/SocialLogin";
 import styled from "styled-components";
 
-const Nameinput = styled.div`
-  color: white;
-`;
-const Commet = styled.div`
-  color: white;
-  margin: 5px;
-`;
-
-function Login() {
-  const { user } = useUserProFile();
-
+function LoginView() {
+  const { proFile } = useLoginHook();
+  console.log(proFile);
   return (
     <div>
-      {user.status === false ? (
+      {proFile.status === false ? (
         <Redirect to={{ pathname: "/" }}></Redirect>
       ) : (
         <Redirect to={{ pathname: "/test" }}></Redirect>
       )}
-      <div>
+      <section>
         <Nameinput>불러줬음 하는 이름이나 별명을 적어주세요!</Nameinput>
         <LoginForm />
         <SocialLogin />
-        <Commet>
+        <Comment>
           로그인 하시면 심리검사 점수가 저장돼 나중에 확인 하실수 있습니다.
-        </Commet>
-      </div>
+        </Comment>
+      </section>
     </div>
   );
 }
 
-export default Login;
+export default LoginView;
+
+const Nameinput = styled.div`
+  color: white;
+`;
+const Comment = styled.div`
+  color: white;
+  margin: 5px;
+`;

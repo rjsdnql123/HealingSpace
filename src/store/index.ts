@@ -1,10 +1,12 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import createSagaMiddleware from "redux-saga";
 import userProFile from "./reducers/userProFile";
+import login from "../feature/loginForm/loginSlice";
 import rootSaga from "./sagas/index";
 
 const rootReducer = combineReducers({
-  userProFile
+  userProFile,
+  login
 });
 
 function createStore() {

@@ -1,6 +1,6 @@
 import WorryCheck from "./WorryCheck";
 import MainTest from "./MainTest";
-import useUserProFile from "../../hooks/userProFileHooks";
+import useLoginHook from "../../hooks/useLoginHook";
 import React from "react";
 import { Redirect } from "react-router-dom";
 
@@ -8,14 +8,14 @@ import { Redirect } from "react-router-dom";
 //user의 Worry가 비어있으면 check 페이지로 Worry가 있으면 MainTest페이지로 이동
 
 function TestIndex() {
-  const { user } = useUserProFile();
+  const { proFile } = useLoginHook();
 
   return (
     <div>
-      {user.status === false ? (
+      {proFile.status === false ? (
         <Redirect to={{ pathname: "/" }} />
       ) : (
-        <div>{user.userWorry === "" ? <WorryCheck /> : <MainTest />}</div>
+        <div>{proFile.error === "" ? <WorryCheck /> : <MainTest />}</div>
       )}
     </div>
   );

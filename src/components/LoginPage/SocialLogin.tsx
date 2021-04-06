@@ -1,16 +1,16 @@
 import React from "react";
-import useUserProFile from "../../hooks/userProFileHooks";
+import useLoginHook from "../../hooks/useLoginHook";
 import GoogleLoginLogo from "../../../public/GoogleLoginLogo.png";
 
 function SocialLogin() {
-  const { onSetGoogleLogin } = useUserProFile();
+  const { onSetGoogleLogin } = useLoginHook();
 
   const googleLogin = () => {
     onSetGoogleLogin();
   };
   return (
     <div onClick={googleLogin}>
-      <img src={GoogleLoginLogo}></img>
+      <img src={GoogleLoginLogo} alt={"구글 로그인"}></img>
     </div>
   );
 }
