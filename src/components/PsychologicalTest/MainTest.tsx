@@ -21,7 +21,7 @@ function MainTest() {
   const {
     onResetScore,
     onSetUserScore,
-    Psychological
+    psychological
   } = usePsychologicalHook();
 
   const counter = (num: number) => {
@@ -30,7 +30,7 @@ function MainTest() {
       onSetUserScore,
       setCount,
       userProfile,
-      Psychological,
+      psychological,
       history,
       count
     });

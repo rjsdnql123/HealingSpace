@@ -10,7 +10,7 @@ import { Redirect } from "react-router-dom";
 
 function PsychologicalView() {
   const { userProfile } = useLoginHook();
-  const { Psychological } = usePsychologicalHook();
+  const { psychological } = usePsychologicalHook();
 
   return (
     <div>
@@ -18,7 +18,7 @@ function PsychologicalView() {
         <Redirect to={{ pathname: "/" }} />
       ) : (
         <div>
-          {Psychological.userWorry === "" ? <WorryCheck /> : <MainTest />}
+          {psychological.userWorry === "" ? <WorryCheck /> : <MainTest />}
         </div>
       )}
     </div>

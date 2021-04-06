@@ -1,7 +1,7 @@
 import { LoginState } from "../feature/loginForm/loginSlice";
 import { writeUserData } from "./firebase";
 import { questions } from "./userAPI";
-import { Psychological } from "../feature/Psychological/PsychologicalSlice";
+import { PsychologicalType } from "../feature/Psychological/psychologicalSlice";
 import { History } from "history";
 
 interface TestCounterType {
@@ -9,7 +9,7 @@ interface TestCounterType {
   onSetUserScore: (userScore: number) => void;
   setCount: (count: number) => void;
   userProfile: LoginState;
-  Psychological: Psychological;
+  psychological: PsychologicalType;
   history: History;
   count: number;
 }
@@ -19,7 +19,7 @@ export const testCounter = ({
   onSetUserScore,
   setCount,
   userProfile,
-  Psychological,
+  psychological,
   history,
   count
 }: TestCounterType) => {
@@ -30,8 +30,8 @@ export const testCounter = ({
     writeUserData(
       userProfile.uid,
       userProfile.userName,
-      Psychological.userScore,
-      Psychological.userWorry
+      psychological.userScore,
+      psychological.userWorry
     );
     history.push("/result");
   }

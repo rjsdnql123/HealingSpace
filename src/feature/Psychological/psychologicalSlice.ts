@@ -1,24 +1,23 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-export interface Psychological {
+export interface PsychologicalType {
   userWorry: string;
   userScore: number;
 }
 
-const initialState: Psychological = {
+const initialState: PsychologicalType = {
   userWorry: "",
   userScore: 0
 };
 
 const PsychologicalReducer = createSlice({
-  name: "Psychological",
-  initialState: initialState as Psychological,
+  name: "psychological",
+  initialState: initialState as PsychologicalType,
   reducers: {
     setUserWorry(state, { payload: worry }: PayloadAction<string>) {
       state.userWorry = worry;
     },
     setUserScore(state, { payload: score }: PayloadAction<number>) {
-      console.log(score, "soroe");
       state.userScore += score;
     },
     resetScore(state) {

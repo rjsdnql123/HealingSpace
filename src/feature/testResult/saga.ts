@@ -1,5 +1,5 @@
 import { all, fork, takeLatest, put, delay, call } from "redux-saga/effects";
-import { PreviousTestAsync, setPreviousTests } from "../reducers/userProFile";
+import { PreviousTestAsync, setPreviousTests } from "./testSlice";
 import { getUserTestCount } from "../../util/firebase";
 
 function* InformationAsync({ payload }: any) {
