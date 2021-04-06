@@ -7,7 +7,7 @@ import styled from "styled-components";
 
 function LoginView() {
   const { userProfile } = useLoginHook();
-  console.log(userProfile);
+
   return (
     <div>
       {userProfile.status === false ? (

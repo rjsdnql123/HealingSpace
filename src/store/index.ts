@@ -1,15 +1,20 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import createSagaMiddleware from "redux-saga";
-import userProFile from "./reducers/userProFile";
 import userProfile from "../feature/loginForm/loginSlice";
-import Psychological from "../feature/Psychological/PsychologicalSlice";
+import psychological from "../feature/Psychological/psychologicalSlice";
+import testResult from "../feature/testResult/testSlice";
+import google from "../feature/loginForm/saga";
+import { all } from "redux-saga/effects";
+import Information from "../feature/testResult/saga";
 
-import rootSaga from "./sagas/index";
+function* rootSaga() {
+  yield all([google(), Information()]);
+}
 
 const rootReducer = combineReducers({
-  userProFile,
   userProfile,
-  Psychological
+  psychological,
+  testResult
 });
 
 function createStore() {

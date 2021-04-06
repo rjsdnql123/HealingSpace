@@ -4,27 +4,32 @@ import kakaoGeolocation from "../../util/kakaoGeolocation";
 import { Link } from "react-router-dom";
 import useResultHook from "../../hooks/useResultHook";
 import styled from "styled-components";
+import useLoginHook from "../../hooks/useLoginHook";
+import usePsychologicalHook from "../../hooks/usePsychologicalHook";
 
 //검사 결과 페이지로 resultCommentAPI에 검색 결과를 요청
 //렌더링 시 kakao Map API를 요청
 
-const TestComment = styled.div`
-  color: white;
-  margin: 5px;
-`;
-
 function TestResult() {
-  const { resultCommentList, user, onPreviousTest } = useResultHook();
+  const { onPreviousTest, comment } = useResultHook();
+
+  const { userProfile } = useLoginHook();
+  const { psychological } = usePsychologicalHook();
+
+  const { userName, uid } = userProfile;
+  const { userWorry, userScore } = psychological;
+
+  const resultCommentList = comment(userName, userScore, userWorry);
 
   useEffect(() => {
     kakaoGeolocation();
-    onPreviousTest(user.uid);
+    onPreviousTest(uid);
   }, []);
 
   return (
     <TestComment>
-      <h3>{user.userName} (이)의 우울 지수는?</h3>
-      <h1>{user.userScore}</h1>
+      <h3>{userName} (이)의 우울 지수는?</h3>
+      <h1>{userScore}</h1>
       <div>
         <h5>{resultCommentList.firstComment}</h5>
         <div>{resultCommentList.mainComment}</div>
@@ -45,3 +50,8 @@ function TestResult() {
 }
 
 export default TestResult;
+
+const TestComment = styled.div`
+  color: white;
+  margin: 5px;
+`;

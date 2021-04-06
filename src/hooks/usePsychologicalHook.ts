@@ -5,11 +5,11 @@ import {
   resetScore,
   setUserScore,
   setUserWorry
-} from "../feature/Psychological/PsychologicalSlice";
+} from "../feature/Psychological/psychologicalSlice";
 
 function useLoginHook() {
   const dispatch = useDispatch();
-  const Psychological = useSelector((state: RootState) => state.Psychological);
+  const psychological = useSelector((state: RootState) => state.psychological);
 
   const onSetUserWorry = useCallback(
     (userWorry: string) => dispatch(setUserWorry(userWorry)),
@@ -21,7 +21,7 @@ function useLoginHook() {
   );
   const onResetScore = useCallback(() => dispatch(resetScore()), [dispatch]);
   return {
-    Psychological,
+    psychological,
     onSetUserWorry,
     onSetUserScore,
     onResetScore
