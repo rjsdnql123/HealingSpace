@@ -15,7 +15,7 @@ const initialState: LoginState = {
 };
 
 const LoginReducer = createSlice({
-  name: "loginForm",
+  name: "userProfile",
   initialState: initialState as LoginState,
   reducers: {
     setUserName(state, { payload: name }: PayloadAction<string>) {

@@ -1,12 +1,15 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import createSagaMiddleware from "redux-saga";
 import userProFile from "./reducers/userProFile";
-import login from "../feature/loginForm/loginSlice";
+import userProfile from "../feature/loginForm/loginSlice";
+import Psychological from "../feature/Psychological/PsychologicalSlice";
+
 import rootSaga from "./sagas/index";
 
 const rootReducer = combineReducers({
   userProFile,
-  login
+  userProfile,
+  Psychological
 });
 
 function createStore() {

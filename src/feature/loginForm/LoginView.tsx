@@ -6,11 +6,11 @@ import SocialLogin from "../../components/LoginPage/SocialLogin";
 import styled from "styled-components";
 
 function LoginView() {
-  const { proFile } = useLoginHook();
-  console.log(proFile);
+  const { userProfile } = useLoginHook();
+  console.log(userProfile);
   return (
     <div>
-      {proFile.status === false ? (
+      {userProfile.status === false ? (
         <Redirect to={{ pathname: "/" }}></Redirect>
       ) : (
         <Redirect to={{ pathname: "/test" }}></Redirect>

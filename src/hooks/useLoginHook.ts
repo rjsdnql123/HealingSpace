@@ -5,7 +5,7 @@ import { setUserName, setGoogleLogin } from "../feature/loginForm/loginSlice";
 
 function useLoginHook() {
   const dispatch = useDispatch();
-  const proFile = useSelector((state: RootState) => state.login);
+  const userProfile = useSelector((state: RootState) => state.userProfile);
 
   const onSetUserName = useCallback(
     (userName: string) => dispatch(setUserName(userName)),
@@ -16,7 +16,7 @@ function useLoginHook() {
     dispatch
   ]);
   return {
-    proFile,
+    userProfile,
     onSetUserName,
     onSetGoogleLogin
   };
