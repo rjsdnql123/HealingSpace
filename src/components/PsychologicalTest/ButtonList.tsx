@@ -1,5 +1,5 @@
 import React from "react";
-import { ChoiceButton } from "../common/styled";
+import { ChoiceButton } from "../../common/styled";
 
 interface ButtonType {
   clickBase: (index: any) => void;

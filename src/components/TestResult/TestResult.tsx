@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { ChoiceButton } from "../common/styled";
+import { ChoiceButton } from "../../common/styled";
 import kakaoGeolocation from "../../util/kakaoGeolocation";
 import { Link } from "react-router-dom";
 import useResultHook from "../../hooks/useResultHook";

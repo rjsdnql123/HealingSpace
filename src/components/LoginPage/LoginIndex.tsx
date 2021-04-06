@@ -4,11 +4,8 @@ import { Redirect } from "react-router-dom";
 import LoginForm from "./LoginForm";
 import SocialLogin from "./SocialLogin";
 import styled from "styled-components";
-type SubmitType = {
-  userName: string;
-};
 
-const Nameinput = styled.h2`
+const Nameinput = styled.div`
   color: white;
 `;
 const Commet = styled.div`
