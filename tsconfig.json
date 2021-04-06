@@ -14,8 +14,10 @@
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node",
     "resolveJsonModule": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
     "isolatedModules": true,
     "typeRoots": ["./node_modules/@types", "./src/@types"]
   },
-  "include": ["src", "src/util", "setupTests.js"]
+  "include": ["src", "src/util"]
 }
