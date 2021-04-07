@@ -1,6 +1,6 @@
 # HealingSpace
 
-[이곳](http://www.google.co.kr). 에서 결과물을 확인 하실 수 있습니다.
+[이곳](https://healingspace-c26ce.web.app/#/) 에서 결과물을 확인 하실 수 있습니다.
 
 ---
 ## Index
@@ -11,7 +11,7 @@
 
 [3. Dev](#dev)
 
-
+---
 
 ## Healing Space 란?
 
@@ -42,7 +42,7 @@
 
 알아보기 쉬운 Chart-UI를 통해 자신의 우울함이 얼마동안이나 지속되었는지 확인하고 집 근처 상담센터를 지도를 통해 찾을 수 있는 Healing 웹 페이지 입니다.
 
-
+---
 
 ## Healing-Space-Page 
 
@@ -77,6 +77,8 @@ KakaoMap-Api를 통해 자신의 집 근처 심리 상담 센터의 마커를 �
 
 소셜 로그인을 했다면, 자신의 이전 검사 기록을 Chart-UI로 보여줌으로써 한눈에 자신의 검사 기록을 확인 할 수 있습니다.
 
+---
+
 ## Dev
 
 ```
@@ -91,8 +93,11 @@ Webpack, Babel, FireBase, Kakao-MapAPI
 - Redux-saga를 활용하여 로그인 로직 비동기 처리
 - babel을 사용하여 크로스브라우징 IE11까지 동작
 - FireBase를 이용하여 구글 로그인, 배포
+- 동일한 결과물을 위해 Apple Font적용
 - Webpack을 사용하여 파일 모듈화
 - Typescript를 활용해 타입 관리
+
+---
 
 #### API이용 최소화
 
@@ -100,9 +105,12 @@ Debounce 활용한 KaKao Map API요청 최소화 지도를 이동 할 때마다 
 
 #### 컴포넌트 구조
 Redux-ToolKit의 Best Practice 구조를 따랐습니다.
+
 MVVC패턴을 생각하며 컴포넌트 구조를 작성 하였습니다.
 
 feature의 slice를 M, View를 MV, Component를 V로 작성 했습니다.
 
+---
 
+ps) 원활한 실행을 위해 API키를 .ENV 를 사용해 숨기지 않았습니다.
 
