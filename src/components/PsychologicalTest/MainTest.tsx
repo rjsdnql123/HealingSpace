@@ -43,10 +43,7 @@ function MainTest() {
   return (
     <div>
       <TestComment>{questions[count].ask}</TestComment>
-      <ProgressBar
-        animated
-        now={Math.round((count / questions.length) * 100)}
-      />
+      <TestBar animated now={Math.round((count / questions.length) * 100)} />
       {questions[count].answer.map((questionsList: string, index: number) => {
         return (
           <ButtonList
@@ -66,4 +63,8 @@ export default MainTest;
 const TestComment = styled.div`
   color: white;
   margin: 5px;
+`;
+
+const TestBar = styled(ProgressBar)`
+  margin: 10px;
 `;
