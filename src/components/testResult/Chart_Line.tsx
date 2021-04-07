@@ -21,8 +21,8 @@ export default function Chart_Line({ data }: ChartLineType) {
       ) : (
         <LineChart width={700} height={300} data={data} margin={{}}>
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="worry" />
-          <YAxis />
+          <XAxis dataKey="worry" stroke="white" />
+          <YAxis stroke="white" />
           <Tooltip />
           <Legend />
           <Line type="monotone" dataKey="score" stroke="#82ca9d" />
