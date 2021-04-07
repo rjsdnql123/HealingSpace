@@ -1,18 +1,19 @@
 # HealingSpace
 
-이곳 에서 결과물을 확인 하실 수 있습니다.
+[이곳](http://www.google.co.kr). 에서 결과물을 확인 하실 수 있습니다.
 
 ---
 ## Index
-1.만들게 된 이유
 
-2. 이용화면
+[1. Healing Space 란?](#healing-space-란)
 
-3. 개발스택
-개발스택
+[2. Healing-Space-Page](#healing-space-page)
+
+[3. Dev](#dev)
 
 
-## Healing Space란?
+
+## Healing Space 란?
 
 "요즘 나 우울한 것 같아"
 
@@ -43,7 +44,7 @@
 
 
 
-## Healing Space 
+## Healing-Space-Page 
 
 ### Login-Page
 <img src = "https://user-images.githubusercontent.com/61114705/113818880-7141a600-97b3-11eb-8a20-6373a5534e99.png" width="800px">
