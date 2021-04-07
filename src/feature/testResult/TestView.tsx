@@ -6,12 +6,12 @@ import useResultHook from "../../hooks/useResultHook";
 import styled from "styled-components";
 import useLoginHook from "../../hooks/useLoginHook";
 import usePsychologicalHook from "../../hooks/usePsychologicalHook";
-
+import Chart_Line from "../../components/testResult/Chart_Line";
 //검사 결과 페이지로 resultCommentAPI에 검색 결과를 요청
 //렌더링 시 kakao Map API를 요청
 
 function TestResult() {
-  const { onPreviousTest, comment } = useResultHook();
+  const { onPreviousTest, comment, previousTest } = useResultHook();
 
   const { userProfile } = useLoginHook();
   const { psychological } = usePsychologicalHook();
@@ -43,6 +43,9 @@ function TestResult() {
         <Link to="/test">
           <ChoiceButton>다시 검사하기</ChoiceButton>
         </Link>
+      </div>
+      <div>
+        <Chart_Line data={previousTest} />
       </div>
       <div>이전 검사 기록을 살펴 보실수 있습니다.</div>
     </TestComment>

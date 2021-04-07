@@ -2,12 +2,21 @@ import { all, fork, takeLatest, put, delay, call } from "redux-saga/effects";
 import { PreviousTestAsync, setPreviousTests } from "./testSlice";
 import { getUserTestCount } from "../../util/firebase";
 
-function* InformationAsync({ payload }: any) {
-  try {
-    const testList = yield call(getUserTestCount, payload);
+interface InformationAsyncType {
+  payload: string;
+}
 
-    yield put(setPreviousTests(testList));
-  } catch (e) {}
+function* InformationAsync({ payload }: InformationAsyncType) {
+  try {
+    if (payload) {
+      const testList = yield call(getUserTestCount, payload);
+      yield put(setPreviousTests(testList));
+    } else {
+      yield put(setPreviousTests([]));
+    }
+  } catch (e) {
+    console.log(e, "e");
+  }
 }
 
 function* watchInformation() {

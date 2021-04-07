@@ -1,11 +1,15 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { resultComment } from "../util/userAPI";
 import { useCallback } from "react";
-import { PreviousTestAsync } from "../store/reducers/userProFile";
+import { PreviousTestAsync } from "../feature/testResult/testSlice";
+import { RootState } from "../store";
 
 function useResultHook() {
+  const previousTest = useSelector(
+    (state: RootState) => state.testResult.previousTest
+  );
   const dispatch = useDispatch();
-
+  
   const comment = (userName: string, userScore: number, userWorry: string) =>
     resultComment(userName, userScore, userWorry);
 
@@ -17,7 +21,7 @@ function useResultHook() {
     [dispatch]
   );
   return {
-    // resultCommentList,
+    previousTest,
     onPreviousTest,
     comment
   };
