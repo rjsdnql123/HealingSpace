@@ -106,9 +106,13 @@ Debounce 활용한 KaKao Map API요청 최소화 지도를 이동 할 때마다 
 #### 컴포넌트 구조
 Redux-ToolKit의 Best Practice 구조를 따랐습니다.
 
-MVVC패턴을 생각하며 컴포넌트 구조를 작성 하였습니다.
+MVVM패턴을 생각하며 컴포넌트 구조를 작성 하였습니다.
 
-feature의 slice를 M, View를 MV, Component를 V로 작성 했습니다.
+feature의 slice(Reducer)는 Model
+
+feature/의 각 View와 hooks를 Model View
+
+각 Component를 View로 작성 했습니다.
 
 ---
 
