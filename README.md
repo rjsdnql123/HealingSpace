@@ -110,7 +110,7 @@ MVVM패턴을 생각하며 컴포넌트 구조를 작성 하였습니다.
 
 feature의 slice(Reducer)는 Model
 
-feature/의 각 View와 hooks를 Model View
+hook 디렉토리에 react-redux hook을 이용해 Model View
 
 각 Component를 View로 작성 했습니다.
 
