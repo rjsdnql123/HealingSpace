@@ -82,7 +82,7 @@ KakaoMap-Api를 통해 자신의 집 근처 심리 상담 센터의 마커를 �
 ## Dev
 
 ```
-React, Redux, Redux-saga, ToolKit, Styled-Components, Typescript, 
+React, Redux, Redux-saga, Redux-ToolKit, Styled-Components, Typescript, 
 Webpack, Babel, FireBase, Kakao-MapAPI
 
 ```
