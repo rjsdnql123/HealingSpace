@@ -33,7 +33,7 @@ function TestResult() {
       <div>
         <h5>{resultCommentList.firstComment}</h5>
         <div>{resultCommentList.mainComment}</div>
-        <div id="map" style={{ height: "500px" }} />
+        <KaKaoMap id="map" style={{ height: "500px" }} />
         <div>
           본 자가 진단은 보건 복지부의 심리상담 질문지를 각색한 것으로 주 1회
           평가를 권장하며, 25점 이상 상태가 2주 이상 지속될 시에 전문가와 상담을
@@ -57,4 +57,8 @@ export default TestResult;
 const TestComment = styled.div`
   color: white;
   margin: 5px;
+`;
+
+const KaKaoMap = styled.div`
+  color: black;
 `;
