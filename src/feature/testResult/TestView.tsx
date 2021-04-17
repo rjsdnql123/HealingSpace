@@ -54,7 +54,7 @@ function TestResult() {
 
 export default TestResult;
 
-const TestComment = styled.div`
+const TestComment = styled.section`
   color: white;
   margin: 5px;
 `;
